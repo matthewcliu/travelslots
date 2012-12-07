@@ -9,5 +9,9 @@ DB_PASSWORD = 'password'
 DB_HOST = ''
 DB_PORT = '3306'
 
-FACEBOOK_APP_ID = '197856283615779'
-FACEBOOK_APP_SECRET = '7ceac6092b9b01a67b92078aa31ab9ae'
+EVERBREAD_USER = 'matthewliu'
+EVERBREAD_PASSWORD = 'travelslots'
+EVERBREAD_SERVICE_URL = 'https://apps.everbread.com/miniapi'
+
+DEPARTURE_AIRPORT = 'JFK'
+AIRPORTS_TO_QUERY = ['YVR', 'LAX', 'SFO', 'LAS']

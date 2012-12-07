@@ -2,19 +2,20 @@
 from django.http import HttpResponse
 from django.shortcuts import render_to_response
 import jsonrpclib
+from travelslots.constants import *
+
 
 
 # Create your views here.
 def index(request):
     
-    service_url = 'https://apps.everbread.com/miniapi' 
-
+    service_url = EVERBREAD_SERVICE_URL 
     proxy = jsonrpclib.Server(service_url)
 
     request = {  
-        "user": "matthewliu",
-        "pass": "travelslots",
-        "departure": "SFO",
+        "user": EVERBREAD_USER,
+        "pass": EVERBREAD_PASSWORD,
+        "departure": DEPARTURE_CITY,
         "arrival": "LON",
         "departureDate": "2012-12-10",
         "returnDate": "2012-12-20",
