@@ -13,5 +13,5 @@ EVERBREAD_USER = 'matthewliu'
 EVERBREAD_PASSWORD = 'travelslots'
 EVERBREAD_SERVICE_URL = 'https://apps.everbread.com/miniapi'
 
-DEPARTURE_AIRPORT = 'SFO'
+#DEPARTURE_AIRPORT = 'SFO'
 AIRPORTS_TO_QUERY = ['YVR', 'LAX', 'JFK', 'LAS', 'LHR']
