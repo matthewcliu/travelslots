@@ -16,12 +16,11 @@ def index(request):
             departure_airport = "SFO"
             journeys_to_display = everbread_query(AIRPORTS_TO_QUERY, departure_date, return_date, departure_airport)
             params = {'search_form': search_form, 'journeys_to_display':journeys_to_display}
-            raise Exception(params)
-            return redirect('/search/', params)
+            return render_to_response('index.html', params)
     else:
         search_form = SearchForm()
     
-    return render(request, 'index.html', {'search_form': search_form})
+    return render(request, 'index.html', {'search_form': search_form)
 
     
 def everbread_query(airports_to_query, departure_date, return_date, departure_airport):
@@ -52,4 +51,3 @@ def everbread_query(airports_to_query, departure_date, return_date, departure_ai
             print "Error connecting to Miniapi service!"
 
     return aggregated_journeys
-    
