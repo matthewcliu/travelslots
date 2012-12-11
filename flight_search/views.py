@@ -1,19 +1,30 @@
 # Create your views here.
-from django.http import HttpResponse
-from django.shortcuts import render_to_response
+from django.http import HttpResponse, HttpResponseRedirect
+from django.shortcuts import render_to_response, redirect, render
 import jsonrpclib
 from travelslots.constants import *
+from search_form import *
 
 # Create your views here.
 def index(request):
 
-    user_departure_date = "2012-12-10"
-    user_return_date = "2012-12-20"
-    journeys_to_display = everbread_query(AIRPORTS_TO_QUERY, user_departure_date, user_return_date)
-    params = {'journeys_to_display':journeys_to_display}
-    return render_to_response('index.html', params)
+    if request.method == 'POST':
+        search_form = SearchForm(request.POST)
+        if search_form.is_valid():
+            departure_date = "2012-12-10"
+            return_date = "2012-12-20"
+            departure_airport = "SFO"
+            journeys_to_display = everbread_query(AIRPORTS_TO_QUERY, departure_date, return_date, departure_airport)
+            params = {'search_form': search_form, 'journeys_to_display':journeys_to_display}
+            raise Exception(params)
+            return redirect('/search/', params)
+    else:
+        search_form = SearchForm()
     
-def everbread_query(airports_to_query, departure_date, return_date):
+    return render(request, 'index.html', {'search_form': search_form})
+
+    
+def everbread_query(airports_to_query, departure_date, return_date, departure_airport):
     service_url = EVERBREAD_SERVICE_URL 
     proxy = jsonrpclib.Server(service_url)
 
@@ -24,7 +35,7 @@ def everbread_query(airports_to_query, departure_date, return_date):
         everbread_request = {  
             "user": EVERBREAD_USER,
             "pass": EVERBREAD_PASSWORD,
-            "departure": DEPARTURE_AIRPORT,
+            "departure": departure_airport,
             "arrival": airport,
             "departureDate": departure_date,
             "returnDate": return_date,

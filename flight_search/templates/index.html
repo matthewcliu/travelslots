@@ -1,4 +1,11 @@
+<form action="/search/" method="post">{% csrf_token %}
+{{ search_form.as_p }}
+<input type="submit" value="Search" />
+	
+</form>
+
 <div id="test_block">
+	Why doesn't this show?
 	{% for journey in journeys_to_display %}
 		<div>{{journey.price}}</div>
 		<div>{{journey.currency}}</div>
