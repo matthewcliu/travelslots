@@ -1,4 +1,4 @@
-BASE_PATH = '/var/www/vmserver/alpha/'
+BASE_PATH = '/var/www/vmserver/travelslots/'
 
 APP = 'travelslots'
 

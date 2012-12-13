@@ -1,3 +1,6 @@
+<link rel="stylesheet" href="{{STATIC_URL}}bootstrap/css/bootstrap.css">
+
+
 <form action="/search/" method="post">{% csrf_token %}
 {{ search_form.as_p }}
 <input type="submit" value="Search" />
