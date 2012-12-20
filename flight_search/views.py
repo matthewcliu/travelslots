@@ -15,9 +15,9 @@ def index(request):
             return_date = search_form.cleaned_data['return_date']
             departure_airport = search_form.cleaned_data['departure_airport']
             journeys_to_display = everbread_query(AIRPORTS_TO_QUERY, departure_date, return_date, departure_airport)
-            fail = 'WTF why does this not show'
-            params = {'search_form': search_form, 'journeys_to_display':journeys_to_display, 'fail':fail}
-            return render_to_response('index.html', params)
+            params = {'search_form': search_form, 'journeys_to_display':journeys_to_display}
+            #return render_to_response('index.html', params)
+            return render(request,'index.html', params)
     else:
         search_form = SearchForm()
     

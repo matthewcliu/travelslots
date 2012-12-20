@@ -1,0 +1,52 @@
+{% extends "skeleton.html" %}
+
+{% block base_css %}
+{% endblock base_css %}
+
+{% block base_js %}
+<!--	
+	If using Facebook auth
+	<script type="text/javascript">
+	    var usernode_id = '{{ user.usernode.id }}';
+            var facebook_app_id = '{{ SETTINGS.FACEBOOK_APP_ID }}';
+	</script> -->
+{% endblock base_js %}
+
+{% block extra_css %}
+{% endblock extra_css %}
+
+{% block extra_js %}
+{% endblock extra_js %}
+
+{% block base_fbroot %}
+	
+{% endblock base_fbroot %}
+
+{% block pagecontent %}
+	
+<div id="header" class="container">
+</div>
+<div class="navbar navbar-fixed-top">
+  <div class="navbar-inner">
+    <div class="container">
+      <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </a>
+      <a class="brand" href="/">Travelslots</a>
+      <div class="nav-collapse">
+        <ul class="nav">
+          <li><a href="/about">About</a></li>
+          <li><a href="/contact">Contact</a></li>
+        </ul>
+      </div><!--/.nav-collapse -->
+    </div>
+  </div>
+</div>
+
+{% block content %}
+	
+{% endblock content %}
+	
+{% endblock pagecontent %}

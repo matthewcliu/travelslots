@@ -1,4 +1,14 @@
+{% extends "base.html" %}
+
+{% block title %}
+	Welcome to MeaninglessCodeName
+{% endblock title %}
+
+
+
 <link rel="stylesheet" href="{{STATIC_URL}}bootstrap/css/bootstrap.css">
+
+{% block content %}
 
 
 <form action="/search/" method="post">{% csrf_token %}
@@ -7,11 +17,12 @@
 	
 </form>
 
-<div id="test_block">
-	{{ fail }}
+<div id="search_results_block">
 	{% for journey in journeys_to_display %}
 		<div>{{journey.price}}</div>
 		<div>{{journey.currency}}</div>
 		<div>{{journey.flights}}</div>		
 	{% endfor %}
 </div>
+
+{% endblock content %}

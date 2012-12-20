@@ -118,6 +118,7 @@ TEMPLATE_DIRS = (
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
     constants.BASE_PATH + 'flight_search/templates',
+    constants.BASE_PATH + 'travelslots/base_templates',
 )
 
 INSTALLED_APPS = (
